@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
 const styles = {
   position: "absolute",
@@ -8,10 +9,13 @@ const styles = {
   color: "rgb(210, 42, 128)"
 };
 
-const Footer = () => (
-  <div>
-    <p style={styles}>@iamtylerwclark</p>
-  </div>
-);
+const Footer = () => {
+  return ReactDOM.createPortal(
+    <div>
+      <p style={styles}>@iamtylerwclark</p>
+    </div>,
+    document.body
+  );
+};
 
 export default Footer;

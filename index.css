@@ -13,7 +13,7 @@ h5,
 h6 {
   letter-spacing: 2px;
 }
-span {
+.backgroundHighlight {
   line-height: 1.2em;
   font-weight: 700;
   font-size: 2.5em;
@@ -73,7 +73,7 @@ em {
   box-shadow: rgb(210, 42, 128) 0px -3.5px 0px -1px inset;
 }
 
-.css-1to5y2r-Root {
+.css-lylheq-Root {
   display: block !important;
   text-align: left !important;
   padding: 40px 15px;

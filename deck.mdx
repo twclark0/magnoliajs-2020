@@ -1,12 +1,9 @@
-import { CodeSurferLayout, CodeSurferColumnLayout } from "code-surfer";
-import { nightOwlFull } from "code-surfer";
-import { Head } from "mdx-deck";
+import { CodeSurferLayout } from "code-surfer";
 import "./index.css";
 import Footer from "components/Footer/index.js";
 import Title from "components/Title/index.js";
 
 export const themes = [
-  nightOwlFull,
   {
     colors: {
       text: "#000",
@@ -36,18 +33,9 @@ export const themes = [
   }
 ];
 
-export { nightOwlFull as theme } from "code-surfer";
-
-<Head>
-  <link
-    href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,700"
-    rel="stylesheet"
-  />
-</Head>
-
 <div style={{marginLeft: '65px'}}>
 
-<Title text="ES8, ES9, ES10+… Let’s explore JavaScript’s exciting new features" />
+<Title text="ES8, ES9, ES10+… Let’s explore JavaScript’s exciting new features"> </Title>
 
 <p style={{marginTop: '75px'}}> MagnoliaJS, 2020 </p>
 
@@ -63,3 +51,81 @@ export { nightOwlFull as theme } from "code-surfer";
 - Live streaming on <em>twitch.tv/livewithtyler</em>
 
 <Footer />
+
+---
+
+ <Title text="JS Buzzwords" />
+
+- <em>ECMAScript</em>: Or "ES", is a scripting-language specification standardized by Ecma International (1994).
+- <em>Edition</em>: (ECMAScript + edition-year) or (ES + edition-number) or (ES + Edition-year)
+- <em>TC39</em>: Short for technical committee 39. This committee controls the evolution of JS. They meet on a regular basis and minutes are recorded.
+- <em>Stages (0 - 4)</em>: Proposals for new JS features have to go through "stages" before added.
+
+<Footer />
+
+---
+
+ <Title text="The Evolution of JS" />
+
+<br />
+<br />
+
+<p>Edition 1 (1997) -> First Edition</p>
+ <hr />
+<p>Edition 2 (1998) -> Editorial changes</p>
+ <hr />
+<p>Edition 3 (1999) -> Regex, try / catch, better Errors, etc.</p>
+ <hr />
+<p>Edition 4 (2003) -> Abandoned (some features added to version 6)</p>
+ <hr />
+<p>Edition 5 (2009) -> strict mode, getters, setters,</p>
+ <hr />
+<p>Edition 6 (2015) -> 🔥 Explosion of new stuff 🔥</p>
+  <hr />
+
+---
+
+<Title text="ES6" />
+
+- let & const
+- spread & rest operators
+- Generators
+- Classes
+- Promises
+- Arrow functions
+- Map & Set
+- Proxies
+- Default Params
+- Template strings
+
+
+---
+
+ <Title text="What did I miss?"></Title>
+
+  ES7 (2016) -> [].includes(), Exponentiation operator (**)
+   <hr />
+  ES8 (2017) -> Async functions
+   <hr />
+  ES9 (2018) -> Async iteration, new RegExp stuff, Promise.proto.finally()
+   <hr />
+  ES10 (2019) -> Array flat() & flatMap(), Object.fromEntries(), String trimStart / End
+  <hr />
+  ES11 (2020) -> Coalescing ??, Optional ?., dynamic import()
+<hr />
+
+  ---
+
+  <CodeSurferLayout>
+
+  ```js
+  const a = 'test'
+  ```
+
+```js
+  const a = 'test'
+  const b = 'another one'
+
+```
+
+  </CodeSurferLayout>
