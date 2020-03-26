@@ -1,0 +1,87 @@
+* {
+  font-family: "Montserrat", sans-serif;
+}
+blockquote {
+  font-weight: 500;
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 2px;
+}
+span {
+  line-height: 1.2em;
+  font-weight: 700;
+  font-size: 2.5em;
+  display: inline-block;
+  background-image: linear-gradient(
+    hsla(0, 0%, 0%, 0) 55%,
+    hsla(349, 82%, 67%, 0.9) 55%,
+    hsla(349, 82%, 67%, 0.9) 95%,
+    hsla(0, 0%, 0%, 0) 95%
+  );
+  background-size: 100% 1.2em;
+  background-position: 0.5em 0;
+  background-repeat: no-repeat space;
+  word-break: keep-all;
+  padding-right: 1em;
+  margin-right: -0.5em;
+}
+h2 {
+  font-size: 2.5em;
+}
+h3 {
+  font-size: 2em;
+}
+h4 {
+  font-size: 1.5em;
+}
+h5 {
+  font-size: 1.2em;
+}
+li::before {
+  display: inline-block;
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 1em;
+  border-radius: 50%;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #4974a5;
+  border-image: initial;
+}
+li {
+  list-style: none;
+  margin: 25px 0;
+}
+.cs-title {
+  color: #fff;
+}
+.cs-scaled-content > div {
+  overflow: visible !important;
+}
+ol {
+  padding-left: 10%;
+}
+em {
+  font-weight: 600;
+  box-shadow: rgb(210, 42, 128) 0px -3.5px 0px -1px inset;
+}
+
+.css-1to5y2r-Root {
+  display: block !important;
+  text-align: left !important;
+  padding: 40px 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: fit-content !important;
+}
+p {
+}
