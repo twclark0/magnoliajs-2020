@@ -70,36 +70,57 @@ export const themes = [
 <br />
 <br />
 
-<p>Edition 1 (1997) -> First Edition</p>
+<p><em>Edition 1 (1997)</em> -> First Edition</p>
  <hr />
-<p>Edition 2 (1998) -> Editorial changes</p>
+<p><em>Edition 2 (1998)</em> -> Editorial changes</p>
  <hr />
-<p>Edition 3 (1999) -> Regex, try / catch, better Errors, etc.</p>
+<p><em>Edition 3 (1999) </em>-> Regex, try / catch, better Errors, etc.</p>
  <hr />
-<p>Edition 4 (2003) -> Abandoned (some features added to version 6)</p>
+<p><em>Edition 4 (2003)</em> -> Abandoned (some features added to version 6)</p>
  <hr />
-<p>Edition 5 (2009) -> strict mode, getters, setters,</p>
+<p><em>Edition 5 (2009) </em>-> strict mode, getters, setters,</p>
  <hr />
-<p>Edition 6 (2015) -> 🔥 Explosion of new stuff 🔥</p>
+<p><em>Edition 6 (2015)</em> -> 🔥 Explosion of new stuff 🔥</p>
   <hr />
 
 ---
 
 <Title text="ES6" />
 
-- let & const
-- spread & rest operators
-- Generators
-- Classes
-- Promises
-- Arrow functions
-- Map & Set
-- Proxies
-- Default Params
-- Template strings
-
+<div style={{display: 'flex', justifyContent: 'space-around'}}>
+  <div>
+    <ul>
+      <li> let & const </li>
+      <li> spread & rest operators </li>
+      <li> Generators </li>
+      <li> Classes </li>
+      <li> Promises </li>
+    </ul>
+    </div>
+    <div>
+    <ul>
+      <li> Arrow functions </li>
+      <li> Map & Set </li>
+      <li> Proxies </li>
+      <li> Default Params </li>
+      <li> Template strings </li>
+      <li> Tons more! </li>
+    </ul>
+  </div>
+</div>
 
 ---
+
+<h3 style={{textAlign: 'center'}}> <em>It was to much</em></h3>
+
+---
+
+<Title text="A needed change" />
+
+- Smaller, more frequent releases
+
+---
+
 
  <Title text="What did I miss?"></Title>
 
@@ -116,16 +137,37 @@ export const themes = [
 
   ---
 
+   <Title text="Low hanging fruit 🍎"></Title>
+
+   - Array.prototype.includes()
+   - Exponentiation operator
+   - Promise.prototype.finally()
+
+---
+
+
   <CodeSurferLayout>
 
-  ```js
-  const a = 'test'
+  ```js title="ES7: Includes"
+    ['Tom', 'Nacy', 'Drew', 'Stacy'].indexOf('Drew') > -1
   ```
 
-```js
-  const a = 'test'
-  const b = 'another one'
+```js title="ES7: Includes"
+['Tom', 'Nacy', 'Drew', 'Stacy'].includes('Drew')
+```
 
+  </CodeSurferLayout>
+
+  ---
+
+<CodeSurferLayout>
+
+  ```js title="ES7: Pow"
+    Math.pow(2, 3) // 8
+  ```
+
+```js title="ES7: Pow"
+  (2 ** 3) // 8
 ```
 
   </CodeSurferLayout>
