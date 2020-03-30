@@ -2,6 +2,7 @@ import { CodeSurferLayout } from "code-surfer";
 import "./index.css";
 import Footer from "components/Footer/index.js";
 import Title from "components/Title/index.js";
+import Img from "components/Img.js";
 
 export const themes = [
   {
@@ -51,6 +52,14 @@ export const themes = [
 - Live streaming on <em>twitch.tv/livewithtyler</em>
 
 <Footer />
+
+---
+
+ <Title text="What this talk is" />
+
+ - Review JS edition releases
+ - Discuss current JS features you <em>might not be aware of</em>
+ - Talk about features <em>looking to come out soon</em>
 
 ---
 
@@ -128,7 +137,7 @@ export const themes = [
    <hr />
   ES8 (2017) -> Async functions
    <hr />
-  ES9 (2018) -> Async iteration, new RegExp stuff, Promise.proto.finally()
+  ES9 (2018) -> Async iteration, new RegExp stuff, Promise.prototype.finally()
    <hr />
   ES10 (2019) -> Array flat() & flatMap(), Object.fromEntries(), String trimStart / End
   <hr />
@@ -137,11 +146,12 @@ export const themes = [
 
   ---
 
-   <Title text="Low hanging fruit 🍎"></Title>
+   <Title text="First up 🍎"></Title>
 
-   - Array.prototype.includes()
+   - Array.prototypetype.includes()
    - Exponentiation operator
-   - Promise.prototype.finally()
+   - Promise.prototypetype.finally()
+   - Tagged template literal
 
 ---
 
@@ -149,11 +159,25 @@ export const themes = [
   <CodeSurferLayout>
 
   ```js title="ES7: Includes"
-    ['Tom', 'Nacy', 'Drew', 'Stacy'].indexOf('Drew') > -1
+['Tom', 'Nacy', 'Drew', 'Stacy'].indexOf('Drew') > -1
   ```
 
 ```js title="ES7: Includes"
-['Tom', 'Nacy', 'Drew', 'Stacy'].includes('Drew')
+['Tom', 'Nacy', 'Drew', 'Stacy'].includes('Drew') // true
+```
+
+```js title="ES7: Includes"
+['Tom', 'Nacy', 'Drew', NaN].includes(NaN) // true
+
+// .indexOf does not work in this scenario
+
+```
+
+```js title="ES7: Includes"
+['Tom', 'Nacy', 'Drew', 'Stacy'].includes('Tom', 1) // false
+
+// .indexOf would need to slice an array
+
 ```
 
   </CodeSurferLayout>
@@ -162,12 +186,112 @@ export const themes = [
 
 <CodeSurferLayout>
 
-  ```js title="ES7: Pow"
-    Math.pow(2, 3) // 8
+  ```js title="ES7: Math.pow"
+   Math.pow(2, 3) // 8
   ```
 
-```js title="ES7: Pow"
+```js title="ES7: **"
   (2 ** 3) // 8
 ```
 
   </CodeSurferLayout>
+
+---
+
+<CodeSurferLayout>
+
+```js title="ES8: Promise.prototype.finally()"
+
+const state = {
+  isLoading: true
+}
+
+  fetch(request)
+  .then((d) => {
+    state.isLoading = false
+    return d.json()
+  })
+```
+
+```js title="ES8: finally()"
+
+const state = {
+  isLoading: true
+}
+
+  fetch(request)
+  .then((d) => d.json())
+  .catch((e) => console.log(e))
+  .finally(() => {
+    state.isLoading = false
+    // clean up code
+  })
+```
+
+  </CodeSurferLayout>
+
+---
+
+<CodeSurferLayout>
+
+```js title="ES9: Tagged Template Literal"
+
+
+
+```
+
+  </CodeSurferLayout>
+
+---
+
+<Title text="Next with help from wes "></Title>
+
+- Array.prototype.flat
+- Object.fromEntries
+
+---
+
+<Img url="./wes-flat.png" />
+
+---
+
+  <CodeSurferLayout>
+
+  ```js title="Array.prototype.flat()"
+const list = [1, 2, [3, 4]]
+
+list.flat() // [1, 2, 3, 4]
+  ```
+
+  </CodeSurferLayout>
+
+  ---
+
+<Img url="./wes-from.png" />
+
+  ---
+
+<CodeSurferLayout>
+
+  ```js title="Object.fromEntries"
+
+const itemsToCount = ['pants', 'socks', 'shoes', 'hats']
+
+Object.fromEntries(itemsToCount.map(item => [item, 0]))
+
+// {pants: 0, socks: 0, shoes: 0, hats: 0}
+
+  ```
+
+  </CodeSurferLayout>
+
+  ---
+
+<Title text="New Regex stuff" />
+
+- Flag /s (dotAll)
+- Unicode Property Escapes
+- Lookbehind Assertions
+- Named capture groups
+
+---

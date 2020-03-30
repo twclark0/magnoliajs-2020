@@ -1,5 +1,9 @@
-import React from 'react'
+import React from "react";
 
-const Img = ({ url, ...props }) => <img className="main-image" src={url} />
+const Img = ({ url, ...props }) => (
+  <div style={{ textAlign: "center" }}>
+    <img className="main-image" src={url} />
+  </div>
+);
 
-export default Img
+export default Img;
