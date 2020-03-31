@@ -1,22 +1,49 @@
 # ES8
 
-- Object.values / Object.entries
 - String padding with padStart and padEnd
-- Async functions
 
 # ES9
 
-- Async iteration
 - New Regex stuff
-- Promise.finally
 
 # ES10
 
-- .flat, .flatMap
-- Object.fromEntries
+- .flatMap
 - String trimStart, trimEnd
 
 # ES11
 
 - ??
 - ?.
+
+---
+
+<Title text="New Regex stuff" />
+
+- Flag /s (dotAll)
+- Unicode Property Escapes
+- Lookbehind Assertions
+- Named capture groups
+
+---
+
+<CodeSurferLayout>
+
+```js title="Flag /s (dotAll)"
+const itemsToCount = ["pants", "socks", "shoes", "hats"];
+
+Object.fromEntries(itemsToCount.map(item => [item, 0]));
+
+// {pants: 0, socks: 0, shoes: 0, hats: 0}
+```
+
+  </CodeSurferLayout>
+
+---
+
+<Title text="New Regex stuff" />
+
+- Flag /s (dotAll)
+- Unicode Property Escapes
+- Lookbehind Assertions
+- Named capture groups

@@ -44,7 +44,7 @@ export const themes = [
 
  ---
 
- <Title text="About me" />
+<Title text="About me" />
 
 - Developer Advocate Engineer at <em>Auth0</em>
 - <em>egghead.io</em> instructor
@@ -55,7 +55,7 @@ export const themes = [
 
 ---
 
- <Title text="What this talk is" />
+<Title text="What this talk is" />
 
  - Review JS edition releases
  - Discuss current JS features you <em>might not be aware of</em>
@@ -63,7 +63,7 @@ export const themes = [
 
 ---
 
- <Title text="JS Buzzwords" />
+<Title text="JS Buzzwords" />
 
 - <em>ECMAScript</em>: Or "ES", is a scripting-language specification standardized by Ecma International (1994).
 - <em>Edition</em>: (ECMAScript + edition-year) or (ES + edition-number) or (ES + Edition-year)
@@ -74,7 +74,7 @@ export const themes = [
 
 ---
 
- <Title text="The Evolution of JS" />
+<Title text="The Evolution of JS" />
 
 <br />
 <br />
@@ -156,7 +156,7 @@ export const themes = [
 ---
 
 
-  <CodeSurferLayout>
+<CodeSurferLayout>
 
   ```js title="ES7: Includes"
 ['Tom', 'Nacy', 'Drew', 'Stacy'].indexOf('Drew') > -1
@@ -180,14 +180,16 @@ export const themes = [
 
 ```
 
-  </CodeSurferLayout>
+</CodeSurferLayout>
 
   ---
 
 <CodeSurferLayout>
 
   ```js title="ES7: Math.pow"
+
    Math.pow(2, 3) // 8
+
   ```
 
 ```js title="ES7: **"
@@ -283,13 +285,49 @@ list.flat() // [1, 2, 3, 4]
 
   ---
 
+<CodeSurferLayout>
+
+  ```js title="Object.entries"
+
+const obj = { foo: 'bar', baz: 42 }
+
+console.log(Object.entries(obj))
+
+// [ ['foo', 'bar'], ['baz', 42] ]
+
+  ```
+
+```js title="Object.keys"
+
+const anObj = { 100: 'a', 2: 'b', 7: 'c' }
+
+console.log(Object.keys(anObj))
+
+// ['2', '7', '100']
+
+```
+
+```js title="Object.keys"
+
+const anObj = { 100: 'a', 2: 'b', 7: 'c' }
+
+Object.keys(anObj).forEach(o => {
+  // do something with properties
+})
+
+```
+
+  </CodeSurferLayout>
+
+  ---
+
 <Img url="./wes-from.png" />
 
   ---
 
 <CodeSurferLayout>
 
-  ```js title="Object.fromEntries"
+  ```js 2 title="Object.fromEntries"
 
 const itemsToCount = ['pants', 'socks', 'shoes', 'hats']
 
@@ -299,6 +337,143 @@ Object.fromEntries(itemsToCount.map(item => [item, 0]))
 
   ```
 
+```js 4 title="Object.fromEntries"
+
+const itemsToCount = ['pants', 'socks', 'shoes', 'hats']
+
+Object.fromEntries(itemsToCount.map(item => [item, 0]))
+
+// {pants: 0, socks: 0, shoes: 0, hats: 0}
+
+  ```
+
+```js 5 title="Object.fromEntries"
+
+const itemsToCount = ['pants', 'socks', 'shoes', 'hats']
+
+Object.fromEntries(itemsToCount.map(item => [item, 0]))
+
+// {pants: 0, socks: 0, shoes: 0, hats: 0}
+
+```
+
+  </CodeSurferLayout>
+
+---
+
+<Title text="Let's talk about the future" />
+
+- Dynamic import
+- Private Class Variables
+- Promise.allSettled
+- Nullish Coalescing operator ??
+- Optional Chaining Operator ?.
+
+---
+
+<CodeSurferLayout>
+
+```js title="Dynamic import"
+
+const main = document.querySelector("main");
+  for (const link of document.querySelectorAll("nav > a")) {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+
+      import('./section-modules/' + link.dataset.entryModule + '.js')
+        .then(module => {
+          module.loadPageInto(main);
+        })
+        .catch(err => {
+          main.textContent = err.message;
+        });
+    });
+  }
+
+```
+
+```js 7 title="Dynamic import"
+
+const main = document.querySelector("main");
+  for (const link of document.querySelectorAll("nav > a")) {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+
+      import('./section-modules/' + link.dataset.entryModule + '.js')
+        .then(module => {
+          module.loadPageInto(main);
+        })
+        .catch(err => {
+          main.textContent = err.message;
+        });
+    });
+  }
+
+```
+
   </CodeSurferLayout>
 
   ---
+
+  <CodeSurferLayout>
+
+```js title="Private class variables"
+
+class Animal {
+  static lastName = "Clark"
+  firstName = "Russ"
+}
+
+const dog = new Animal()
+
+Animal.lastName // "Clark"
+Animal.firstName // undefined
+
+```
+
+```js title="Private class variables"
+
+class Animal {
+  static lastName = "Clark"
+  firstName = "Russ"
+}
+
+const dog = new Animal()
+
+dog.lastName // undefined
+dog.firstName // "Russ"
+
+```
+
+```js title="Private class variables"
+
+class Animal {
+  static lastName = "Clark"
+  firstName = "Russ"
+  #middleName = "Ray"
+}
+
+const dog = new Animal()
+
+Animal.middleName // undefined
+dog.middleName // undeinfed
+dog.#middleName // Error: Private field only within class
+
+```
+
+```js title="Private class variables"
+
+class Animal {
+  static lastName = "Clark"
+  firstName = () => this.#middleName
+  #middleName = "Ray"
+}
+
+const dog = new Animal()
+
+Animal.firstName() // undefined
+dog.firstName() // "Ray"
+
+```
+
+  </CodeSurferLayout>
