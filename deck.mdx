@@ -361,13 +361,9 @@ Object.fromEntries(itemsToCount.map(item => [item, 0]))
 
 ---
 
-<Title text="Let's talk about the future" />
+<Title text="ES2020 (ES11)" />
 
-- Dynamic import
-- Private Class Variables
-- Promise.allSettled
-- Nullish Coalescing operator ??
-- Optional Chaining Operator ?.
+<img style={{marginTop: '200px', maxHeight: '845px', width: '53%'}} src="./es11.png" />
 
 ---
 
@@ -414,6 +410,121 @@ const main = document.querySelector("main");
   </CodeSurferLayout>
 
   ---
+
+<CodeSurferLayout>
+
+```js title="Nullish Coalescing ??"
+
+const someNumber = 42
+
+console.log(someNumber ?? 'Right side') // 42
+
+console.log(someNumber || 'Right side') // 42
+
+```
+
+```js title="Nullish Coalescing ??"
+
+const nullValue = null
+
+console.log(nullValue ?? 'Right side') // 'Right side'
+
+console.log(nullValue || 'Right side') // 'Right side'
+
+```
+
+```js title="Nullish Coalescing ??"
+
+const emptyText = ""
+
+console.log(emptyText ?? 'Right side') // ""
+
+console.log(emptyText || 'Right side') // 'Right side'
+
+```
+
+```js title="Nullish Coalescing ??"
+
+const zero = 0
+
+console.log(zero ?? 'Right side') // 0
+
+console.log(zero || 'Right side') // 'Right side'
+
+```
+
+```js title="Nullish Coalescing ??"
+
+null || undefined ?? "foo"; // raises a SyntaxError
+
+(null || undefined) ?? "foo"; // returns "foo"
+
+```
+
+</CodeSurferLayout>
+
+---
+
+<CodeSurferLayout>
+
+```js title="Optional Chaining ?."
+
+const name = props && props.data && props.data.firstName
+
+```
+
+```js title="Optional Chaining ?."
+
+const name = props?.data?.firstName
+
+// undefined if anything doesn't exist
+
+```
+
+```js title="Optional Chaining ?."
+
+const myName = 'tyler'
+
+const name = props?.data?.[myName]
+
+// undefined if anything doesn't exist
+
+```
+
+```js title="Optional Chaining ?."
+
+const name = props?.onClick?.()
+
+// undefined if anything doesn't exist
+
+```
+
+</CodeSurferLayout>
+
+---
+
+<Title text="Promise combinators " />
+
+- Promise.all (<em>ES2015</em>) vs. Promise.allSettled (<em>ES2020</em>)
+- Promise.race (<em>ES2015</em>) vs. Promise.any (<em>proposal</em>)
+
+---
+
+<CodeSurferLayout>
+
+```js title="Promise combinators"
+
+const
+
+```
+
+</CodeSurferLayout>
+
+---
+
+<Title text="Let's look at the future" />
+
+---
 
   <CodeSurferLayout>
 
