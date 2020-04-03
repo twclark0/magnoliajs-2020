@@ -512,9 +512,55 @@ const name = props?.onClick?.()
 
 <CodeSurferLayout>
 
-```js title="Promise combinators"
+```js title="Promise.all"
 
-const
+const urls = [
+  fetch('./styles-a.css'),
+  fetch('./styles-a.css') // errors out
+]
+
+const stylesResponses = await Promise.all(urls)
+
+// All are fulfilled, OR as soon as one rejects
+
+```
+
+```js title="Promise.allSettled"
+
+const urls = [
+  fetch('./styles-a.css'),
+  fetch('./styles-a.css') // errors out
+]
+
+const stylesResponses = await Promise.allSettled(urls)
+
+// All are fulfilled, regardless of success or failure
+
+```
+
+```js title="Promise.race"
+
+const urls = [
+  fetch('./styles-a.css'),
+  fetch('./styles-a.css') // errors out
+]
+
+const stylesResponses = await Promise.race(urls)
+
+// First prmoise that is a success or rejection
+
+```
+
+```js title="Promise.any"
+
+const urls = [
+  fetch('./styles-a.css'),
+  fetch('./styles-a.css') // errors out
+]
+
+const stylesResponses = await Promise.any(urls)
+
+// First prmoise that is a success or when all are rejected
 
 ```
 
@@ -522,7 +568,45 @@ const
 
 ---
 
-<Title text="Let's look at the future" />
+<Title text="Module namespace exports" />
+- Add one additonal export module option
+
+
+---
+
+
+
+<CodeSurferLayout>
+
+```js title="Private class variables"
+
+export { x } from './file.js'
+export { x as v } from './file.js'
+export * from './file.js'
+
+```
+
+```js title="Private class variables"
+
+export { x } from './file.js'
+export { x as v } from './file.js'
+export * from './file.js'
+
+export * as newName from './file.js'
+
+```
+
+
+  </CodeSurferLayout>
+
+---
+
+<Title text="Let's look at the future: stage 3" />
+
+- Private class methods and fields
+- Top level await
+- Promise.any
+- Logical Assignment
 
 ---
 
@@ -584,6 +668,104 @@ const dog = new Animal()
 
 Animal.firstName() // undefined
 dog.firstName() // "Ray"
+
+```
+
+  </CodeSurferLayout>
+
+
+---
+
+   <CodeSurferLayout>
+
+   ```js title="Top level await"
+
+await Promise.resolve(console.log('🎉'));
+// → SyntaxError: await is only valid in async function
+
+(async function() {
+  await Promise.resolve(console.log('🎉'));
+  // → 🎉
+}());
+```
+
+```js title="Top level await"
+
+await Promise.resolve(console.log('🎉'));
+// → 🎉
+
+```
+
+```js title="Top level await"
+
+let jQuery;
+try {
+  jQuery = await import('https://cdn-a.example.com/jQuery');
+} catch {
+  jQuery = await import('https://cdn-b.example.com/jQuery');
+}
+
+```
+
+  </CodeSurferLayout>
+
+---
+
+<Title text="Top level await gotchas " />
+
+- Can't go in "main" JS program, only modules
+- Can cause issues with dynamic imports. Potential deadlocks?
+- Module execution order behavior changes with await
+- [More info](https://v8.dev/features/top-level-await)
+
+---
+
+   <CodeSurferLayout>
+
+```js title="Logical Assignment"
+
+let a = 2
+
+a+= 2
+
+```
+
+```js title="Logical Assignment"
+
+let a
+let b = 2
+
+a ||= b
+
+// a || (a = b)
+
+// a === 2
+
+```
+
+```js title="Logical Assignment"
+
+let a = null
+let b = 2
+
+a &&= b
+
+// a && (a = b)
+
+// a === null
+
+```
+
+```js title="Logical Assignment"
+
+let a = null
+let b = 2
+
+a ??= b
+
+// a ?? (a = b)
+
+// a === 2
 
 ```
 
