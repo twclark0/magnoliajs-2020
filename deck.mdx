@@ -61,6 +61,8 @@ export const themes = [
  - Discuss current JS features you <em>might not be aware of</em>
  - Talk about features <em>looking to come out soon</em>
 
+ <Footer />
+
 ---
 
 <Title text="JS Buzzwords" />
@@ -92,6 +94,8 @@ export const themes = [
 <p><em>Edition 6 (2015)</em> -> 🔥 Explosion of new stuff 🔥</p>
   <hr />
 
+<Footer />
+
 ---
 
 <Title text="ES6" />
@@ -118,15 +122,21 @@ export const themes = [
   </div>
 </div>
 
+<Footer />
+
 ---
 
-<h3 style={{textAlign: 'center'}}> <em>It was to much</em></h3>
+<h3 style={{textAlign: 'center'}}> <em>It was too much</em></h3>
+
+<Footer />
 
 ---
 
 <Title text="A needed change" />
 
 - Smaller, more frequent releases
+
+<Footer />
 
 ---
 
@@ -144,6 +154,8 @@ export const themes = [
   ES11 (2020) -> Coalescing ??, Optional ?., dynamic import()
 <hr />
 
+<Footer />
+
   ---
 
    <Title text="First up 🍎"></Title>
@@ -152,6 +164,8 @@ export const themes = [
    - Exponentiation operator
    - Promise.prototypetype.finally()
    - Tagged template literal
+
+   <Footer />
 
 ---
 
@@ -238,11 +252,15 @@ const state = {
 
 <img style={{marginTop: '203px'}}  src="./template1.png" />
 
+<Footer />
+
 ---
 
 <Title text="Tagged Tempalte Literal" />
 
 <img style={{marginTop: '203px'}}  src="./template2.png" />
+
+<Footer />
 
 ---
 
@@ -250,11 +268,15 @@ const state = {
 
 <img style={{marginTop: '203px'}}  src="./template3.png" />
 
+<Footer />
+
 ---
 
 <Title text="Tagged Tempalte Literal" />
 
 <img style={{marginTop: '203px'}} src="./template4.png" />
+
+<Footer />
 
 ---
 
@@ -263,9 +285,13 @@ const state = {
 - Array.prototype.flat
 - Object.fromEntries
 
+<Footer />
+
 ---
 
 <Img url="./wes-flat.png" />
+
+<Footer />
 
 ---
 
@@ -282,6 +308,8 @@ list.flat() // [1, 2, 3, 4]
   ---
 
   <Img url="./addy.png" />
+
+  <Footer />
 
   ---
 
@@ -322,6 +350,8 @@ Object.keys(anObj).forEach(o => {
   ---
 
 <Img url="./wes-from.png" />
+
+<Footer />
 
   ---
 
@@ -365,6 +395,8 @@ Object.fromEntries(itemsToCount.map(item => [item, 0]))
 
 <img style={{marginTop: '200px', maxHeight: '845px', width: '53%'}} src="./es11.png" />
 
+<Footer />
+
 ---
 
 <CodeSurferLayout>
@@ -407,6 +439,25 @@ const main = document.querySelector("main");
 
 ```
 
+```js 8 title="Dynamic import"
+
+const main = document.querySelector("main");
+  for (const link of document.querySelectorAll("nav > a")) {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+
+      import('./section-modules/' + link.dataset.entryModule + '.js')
+        .then(module => {
+          module.loadPageInto(main);
+        })
+        .catch(err => {
+          main.textContent = err.message;
+        });
+    });
+  }
+
+```
+
   </CodeSurferLayout>
 
   ---
@@ -417,9 +468,9 @@ const main = document.querySelector("main");
 
 const someNumber = 42
 
-console.log(someNumber ?? 'Right side') // 42
-
 console.log(someNumber || 'Right side') // 42
+
+console.log(someNumber ?? 'Right side') // 42
 
 ```
 
@@ -427,9 +478,9 @@ console.log(someNumber || 'Right side') // 42
 
 const nullValue = null
 
-console.log(nullValue ?? 'Right side') // 'Right side'
-
 console.log(nullValue || 'Right side') // 'Right side'
+
+console.log(nullValue ?? 'Right side') // 'Right side'
 
 ```
 
@@ -437,9 +488,9 @@ console.log(nullValue || 'Right side') // 'Right side'
 
 const emptyText = ""
 
-console.log(emptyText ?? 'Right side') // ""
-
 console.log(emptyText || 'Right side') // 'Right side'
+
+console.log(emptyText ?? 'Right side') // ""
 
 ```
 
@@ -447,9 +498,9 @@ console.log(emptyText || 'Right side') // 'Right side'
 
 const zero = 0
 
-console.log(zero ?? 'Right side') // 0
-
 console.log(zero || 'Right side') // 'Right side'
+
+console.log(zero ?? 'Right side') // 0
 
 ```
 
@@ -508,6 +559,8 @@ const name = props?.onClick?.()
 - Promise.all (<em>ES2015</em>) vs. Promise.allSettled (<em>ES2020</em>)
 - Promise.race (<em>ES2015</em>) vs. Promise.any (<em>proposal</em>)
 
+<Footer />
+
 ---
 
 <CodeSurferLayout>
@@ -547,7 +600,7 @@ const urls = [
 
 const stylesResponses = await Promise.race(urls)
 
-// First prmoise that is a success or rejection
+// First promise that is a success or rejection
 
 ```
 
@@ -569,8 +622,10 @@ const stylesResponses = await Promise.any(urls)
 ---
 
 <Title text="Module namespace exports" />
-- Add one additonal export module option
 
+- Adds one additonal export module option
+
+<Footer />
 
 ---
 
@@ -578,16 +633,14 @@ const stylesResponses = await Promise.any(urls)
 
 <CodeSurferLayout>
 
-```js title="Private class variables"
-
+```js
 export { x } from './file.js'
 export { x as v } from './file.js'
 export * from './file.js'
 
 ```
 
-```js title="Private class variables"
-
+```js
 export { x } from './file.js'
 export { x as v } from './file.js'
 export * from './file.js'
@@ -605,8 +658,10 @@ export * as newName from './file.js'
 
 - Private class methods and fields
 - Top level await
-- Promise.any
 - Logical Assignment
+- (Promise.any)
+
+<Footer />
 
 ---
 
@@ -618,8 +673,6 @@ class Animal {
   static lastName = "Clark"
   firstName = "Russ"
 }
-
-const dog = new Animal()
 
 Animal.lastName // "Clark"
 Animal.firstName // undefined
@@ -680,19 +733,18 @@ dog.firstName() // "Ray"
 
    ```js title="Top level await"
 
-await Promise.resolve(console.log('🎉'));
-// → SyntaxError: await is only valid in async function
-
 (async function() {
-  await Promise.resolve(console.log('🎉'));
-  // → 🎉
+  await Promise.resolve(console.log('It works'));
+  // It works
 }());
+
 ```
 
-```js title="Top level await"
+```js 3:4 title="Top level await"
 
-await Promise.resolve(console.log('🎉'));
-// → 🎉
+
+await Promise.resolve(console.log('It works'));
+  // It works
 
 ```
 
@@ -717,6 +769,8 @@ try {
 - Can cause issues with dynamic imports. Potential deadlocks?
 - Module execution order behavior changes with await
 - [More info](https://v8.dev/features/top-level-await)
+
+<Footer />
 
 ---
 
@@ -770,3 +824,47 @@ a ??= b
 ```
 
   </CodeSurferLayout>
+
+  ---
+
+<p style={{textAlign: 'center'}}><em>Many stage 0 -2 proposals</em></p>
+
+<Footer />
+
+---
+
+<Title text="Recap" />
+
+<div style={{display: 'flex', justifyContent: 'space-around'}}>
+  <div>
+    <ul>
+      <li> Array.prototypetype.includes() </li>
+      <li> Exponentiation operator </li>
+      <li> Promise.prototypetype.finally() </li>
+      <li> Tagged template literal </li>
+      <li> Array.prototype.flat </li>
+      <li> Object.fromEntries </li>
+      <li> Dynamic import </li>
+    </ul>
+    </div>
+    <div>
+    <ul>
+      <li> Nullish Coalescing </li>
+      <li> Optional Chaining </li>
+      <li> Promise.allSettled </li>
+      <li> Promise.any </li>
+      <li> Module namespace exports </li>
+      <li> Private class methods and fields </li>
+      <li> Top level await </li>
+      <li> Logical Assignment </li>
+    </ul>
+  </div>
+</div>
+
+<Footer />
+
+---
+
+<Title text="Thanks!" />
+
+<Footer />
