@@ -57,9 +57,9 @@ export const themes = [
 
 <Title text="What this talk is" />
 
- - Review JS edition releases
- - Discuss current JS features you <em>might not be aware of</em>
- - Talk about features <em>looking to come out soon</em>
+- Review JS edition releases
+- Discuss current JS features you <em>might not be aware of</em>
+- Talk about features <em>looking to come out soon</em>
 
  <Footer />
 
@@ -250,7 +250,7 @@ const state = {
 
 <Title text="Tagged Tempalte Literal" />
 
-<img style={{marginTop: '203px'}}  src="./template1.png" />
+<img className="code-snipet"  src="./template1.png" />
 
 <Footer />
 
@@ -258,7 +258,7 @@ const state = {
 
 <Title text="Tagged Tempalte Literal" />
 
-<img style={{marginTop: '203px'}}  src="./template2.png" />
+<img className="code-snipet"  src="./template2.png" />
 
 <Footer />
 
@@ -266,7 +266,7 @@ const state = {
 
 <Title text="Tagged Tempalte Literal" />
 
-<img style={{marginTop: '203px'}}  src="./template3.png" />
+<img className="code-snipet"  src="./template3.png" />
 
 <Footer />
 
@@ -274,7 +274,7 @@ const state = {
 
 <Title text="Tagged Tempalte Literal" />
 
-<img style={{marginTop: '203px'}} src="./template4.png" />
+<img className="code-snipet" src="./template4.png" />
 
 <Footer />
 
@@ -391,9 +391,10 @@ Object.fromEntries(itemsToCount.map(item => [item, 0]))
 
 ---
 
-<Title text="ES2020 (ES11)" />
-
-<img style={{marginTop: '200px', maxHeight: '845px', width: '53%'}} src="./es11.png" />
+<div>
+<img style={{ width: '49%',  margin: "auto",   display: "grid",
+    placeItems: "center"}} src="./es11.png" />
+</div>
 
 <Footer />
 

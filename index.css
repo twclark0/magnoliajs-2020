@@ -59,6 +59,16 @@ li {
   list-style: none;
   margin: 25px 0;
 }
+
+.code-snippet {
+  margin: auto;
+  margin-top: 203px;
+  display: grid;
+}
+
+li p {
+  display: inline;
+}
 .cs-scaled-content > div {
   overflow: visible !important;
 }
