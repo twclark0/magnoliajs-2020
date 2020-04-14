@@ -116,7 +116,7 @@ export const themes = [
 
 ---
 
-<Title text="ES6" />
+<Title text="ES2015 (ES6)" />
 
 <div style={{ display: "flex", justifyContent: "space-around" }}>
   <div>
@@ -163,20 +163,23 @@ export const themes = [
 
 <Title text="What did I miss?"></Title>
 
-ES7 (2016) -> [].includes(), Exponentiation operator (\*\*)
+ES2016 (2016) -> [].includes(), Exponentiation operator (\*\*)
 
 <hr />
-ES8 (2017) -> Async functions
+ES2017 -> Async functions
 <hr />
-ES9 (2018) -> Async iteration, new RegExp stuff, Promise.prototype.finally()
+ES2018 -> Async iteration, new RegExp stuff, Promise.prototype.finally()
 <hr />
-ES10 (2019) -> Array flat() & flatMap(), Object.fromEntries(), String trimStart /
-End
+ES2019 -> Array flat() & flatMap(), Object.fromEntries(), String trimStart / End
 <hr />
-ES11 (2020) -> Coalescing ??, Optional ?., dynamic import()
+ES2020 -> Coalescing ??, Optional ?., dynamic import()
 <hr />
 
 <Footer />
+
+---
+
+<img style={{ display: "block", margin: "auto" }} src="./ryan.png" />
 
 ---
 
@@ -184,8 +187,8 @@ ES11 (2020) -> Coalescing ??, Optional ?., dynamic import()
 
 - Array.prototypetype.includes()
 - Exponentiation operator
-- Promise.prototypetype.finally()
 - Tagged template literal
+- Promise.prototypetype.finally()
 
 <Footer />
 
@@ -193,21 +196,21 @@ ES11 (2020) -> Coalescing ??, Optional ?., dynamic import()
 
 <CodeSurferLayout>
 
-```js title="ES7: Includes"
+```js title="ES2016: Includes"
 ["Tom", "Nacy", "Drew", "Stacy"].indexOf("Drew") > -1;
 ```
 
-```js title="ES7: Includes"
+```js title="ES2016: Includes"
 ["Tom", "Nacy", "Drew", "Stacy"].includes("Drew"); // true
 ```
 
-```js title="ES7: Includes"
+```js title="ES2016: Includes"
 ["Tom", "Nacy", "Drew", NaN].includes(NaN); // true
 
 // .indexOf does not work in this scenario
 ```
 
-```js title="ES7: Includes"
+```js title="ES2016: Includes"
 ["Tom", "Nacy", "Drew", "Stacy"].includes("Tom", 1); // false
 
 // .indexOf would need to slice an array
@@ -219,43 +222,12 @@ ES11 (2020) -> Coalescing ??, Optional ?., dynamic import()
 
 <CodeSurferLayout>
 
-```js title="ES7: Math.pow"
+```js title="ES2016: Math.pow"
 Math.pow(2, 3); // 8
 ```
 
-```js title="ES7: **"
+```js title="ES2016: **"
 2 ** 3; // 8
-```
-
-  </CodeSurferLayout>
-
----
-
-<CodeSurferLayout>
-
-```js title="ES8: Promise.prototype.finally()"
-const state = {
-  isLoading: true,
-};
-
-fetch(request).then((d) => {
-  state.isLoading = false;
-  return d.json();
-});
-```
-
-```js title="ES8: finally()"
-const state = {
-  isLoading: true,
-};
-
-fetch(request)
-  .then((d) => d.json())
-  .catch((e) => console.log(e))
-  .finally(() => {
-    state.isLoading = false;
-    // clean up code
-  });
 ```
 
   </CodeSurferLayout>
@@ -264,7 +236,7 @@ fetch(request)
 
 <div style={{textAlign: 'center'}}>
 <div>
-  <em>Tagged template literal ES7 </em>
+  <em>Tagged template literal ES2016 </em>
 </div>
 
 <img
@@ -279,7 +251,7 @@ fetch(request)
 
 <div style={{textAlign: 'center'}}>
 <div>
-  <em>Tagged template literal ES7 </em>
+  <em>Tagged template literal ES2016 </em>
 </div>
 
 <img
@@ -297,7 +269,7 @@ fetch(request)
 <div style={{textAlign: 'center'}}>
 
 <div>
-  <em>Tagged template literal ES7 </em>
+  <em>Tagged template literal ES2016 </em>
 </div>
 
 <img
@@ -314,7 +286,7 @@ fetch(request)
 
 <div style={{textAlign: 'center'}}>
 <div>
-  <em>Tagged template literal ES7 </em>
+  <em>Tagged template literal ES2016 </em>
 </div>
 
 <img
@@ -325,6 +297,37 @@ fetch(request)
 </div>
 
 <Footer />
+
+---
+
+<CodeSurferLayout>
+
+```js title="ES2017: Promise.prototype.finally()"
+const state = {
+  isLoading: true,
+};
+
+fetch(request).then((d) => {
+  state.isLoading = false;
+  return d.json();
+});
+```
+
+```js title="ES2017: finally()"
+const state = {
+  isLoading: true,
+};
+
+fetch(request)
+  .then((d) => d.json())
+  .catch((e) => console.log(e))
+  .finally(() => {
+    state.isLoading = false;
+    // clean up code
+  });
+```
+
+  </CodeSurferLayout>
 
 ---
 
@@ -363,7 +366,7 @@ list.flat(); // [1, 2, 3, 4]
 
 <CodeSurferLayout>
 
-```js title="Object.entries"
+```js title="Object.entries ES2015"
 const obj = { foo: "bar", baz: 42 };
 
 console.log(Object.entries(obj));
@@ -371,7 +374,7 @@ console.log(Object.entries(obj));
 // [ ['foo', 'bar'], ['baz', 42] ]
 ```
 
-```js title="Object.keys"
+```js title="Object.keys ES2015"
 const anObj = { 100: "a", 2: "b", 7: "c" };
 
 console.log(Object.keys(anObj));
@@ -379,7 +382,7 @@ console.log(Object.keys(anObj));
 // ['2', '7', '100']
 ```
 
-```js title="Object.keys"
+```js title="Object.keys ES2015"
 const anObj = { 100: "a", 2: "b", 7: "c" };
 
 Object.keys(anObj).forEach((o) => {
@@ -645,7 +648,7 @@ const urls = [
 
 const stylesResponses = await Promise.any(urls);
 
-// First prmoise that is a success or when all are rejected
+// First promise that is a success or when all are rejected
 ```
 
 </CodeSurferLayout>
@@ -654,7 +657,7 @@ const stylesResponses = await Promise.any(urls);
 
 <Title text="Module namespace exports" />
 
-- Adds one additonal export module option
+- Adds one additional export module option
 
 <Footer />
 
