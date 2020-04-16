@@ -5,8 +5,8 @@ const styles = {
   position: "absolute",
   bottom: "0",
   right: "25px",
-  fontSize: "30px",
-  color: "rgb(210, 42, 128)"
+  fontSize: "35px",
+  color: "rgb(210, 42, 128)",
 };
 
 const Footer = () => {

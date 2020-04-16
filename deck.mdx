@@ -67,21 +67,6 @@ export const themes = [
 
 ---
 
-<Title text="JS Buzzwords" />
-
-- <em>ECMAScript</em>: Or "ES", is a scripting-language specification
-  standardized by Ecma International (1994).
-- <em>Edition</em>: (ECMAScript + edition-year) or (ES + edition-number) or (ES
-  + edition-year)
-- <em>TC39</em>: Short for technical committee 39. This committee controls the
-  evolution of JS. They meet on a regular basis and minutes are recorded.
-- <em>Stages (0 - 4)</em>: Proposals for new JS features have to go through
-  "stages" before added.
-
-<Footer />
-
----
-
 <Title text="The Evolution of JS" />
 
 <br />
@@ -366,28 +351,8 @@ list.flat(); // [1, 2, 3, 4]
 
 <CodeSurferLayout>
 
-```js title="Object.entries ES2015"
-const obj = { foo: "bar", baz: 42 };
-
-console.log(Object.entries(obj));
-
-// [ ['foo', 'bar'], ['baz', 42] ]
-```
-
-```js title="Object.keys ES2015"
-const anObj = { 100: "a", 2: "b", 7: "c" };
-
-console.log(Object.keys(anObj));
-
-// ['2', '7', '100']
-```
-
-```js title="Object.keys ES2015"
-const anObj = { 100: "a", 2: "b", 7: "c" };
-
-Object.keys(anObj).forEach((o) => {
-  // do something with properties
-});
+```js 1 title="Object.fromEntries ES2019"
+Array of values -> object
 ```
 
   </CodeSurferLayout>
@@ -727,8 +692,7 @@ class Animal {
 
 const dog = new Animal();
 
-Animal.middleName; // undefined
-dog.middleName; // undeinfed
+Animal.#middleName; // Private field '#middleName' must be declared in an enclosing class
 dog.#middleName; // Error: Private field only within class
 ```
 
@@ -758,7 +722,7 @@ dog.firstName(); // "Ray"
 })();
 ```
 
-```js 3:4 title="Top level await"
+```js 1:2 title="Top level await"
 await Promise.resolve(console.log("It works"));
 // It works
 ```
@@ -779,9 +743,8 @@ try {
 <Title text="Top level await gotchas " />
 
 - Can't go in "main" JS program, only modules
-- Can cause issues with dynamic imports. Potential deadlocks?
 - Module execution order behavior changes with await
-- [More info](https://v8.dev/features/top-level-await)
+- More info: https://v8.dev/features/top-level-await
 
 <Footer />
 
@@ -807,18 +770,18 @@ a ||= b;
 ```
 
 ```js title="Logical Assignment"
-let a = null;
+let a;
 let b = 2;
 
 a &&= b;
 
 // a && (a = b)
 
-// a === null
+// a === undefined
 ```
 
 ```js title="Logical Assignment"
-let a = null;
+let a;
 let b = 2;
 
 a ??= b;
@@ -833,7 +796,7 @@ a ??= b;
 ---
 
 <p style={{ textAlign: "center" }}>
-  <em>Many stage 0 -2 proposals</em>
+  <em>Many stage 0 - 2 proposals</em>
 </p>
 
 <Footer />
